@@ -10,6 +10,8 @@ Early predictors of student success are becoming a key tool in flipped and onlin
 
 The code has been tested under Python >= 3.6. 
 
+* Create env
+
 Install dependencies:
 
 ```setup
@@ -23,6 +25,7 @@ We recommend set ```PYTHONPATH``` before running the code:
 export PYTHONPATH=${PYTHONPATH}:`pwd`
 ```
 
+
 ## Data Preparation
 
 By default, course grades, problem events, video events, and course schedules are expected to be stored in ```data/course/{flipped-classroom|mooc}/{courseplatform}```.
@@ -34,7 +37,19 @@ mkdir -p data/course/{flipped-classroom|mooc}/{courseplatform}/video_event
 mkdir -p data/course/{flipped-classroom|mooc}/{courseplatform}/schedule
 ```
 
+Example:
+```
+mkdir -p data/course/flipped-classroom/moodle/grade
+mkdir -p data/course/flipped-classroom/moodle/problem_event
+mkdir -p data/course/flipped-classroom/moodle/video_event
+mkdir -p data/course/flipped-classroom/moodle/schedule
+```
 In the folder ```data/course/{flipped-classroom|mooc}/{courseplatform}```, a file ```metadata.csv``` [format: course_id, title, teachers, period, start_date, end_date, weeks, grade_thr, grade_max] needs to include course descriptive attributes.
+
+Example: 
+```
+
+```
 
 For each course, we expect that the following data is provided in the corresponding subfolders below:
 - ```grade/{course_id}.csv``` [format: user_id, grade, date].
@@ -61,6 +76,9 @@ Each course feature set is saved in a folder named as:
 ```
 {lq-week|eq-week}-{feature_set}-{course_id}
 ```
+
+- lq-week - less or equals to
+- eq-week - equal week
 
 For each feature set, in the above folder, the following files are stored:
 - ```feature_labels.csv``` [format: user_index, label-grade, label-pass-fail, label-dropout, label-stopout]
